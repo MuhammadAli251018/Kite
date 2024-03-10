@@ -5,7 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm
 import io.ktor.server.auth.Principal
 
 
-interface TokenService <T: Principal> {
+interface TokenService <T> {
     fun generateToken(config: TokenConfig, data: T): String
 }
 

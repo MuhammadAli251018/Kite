@@ -8,7 +8,6 @@ import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.jwt.jwt
 import io.ktor.server.response.respond
 import online.muhammadali.kite.auth.domain.models.User
-import online.muhammadali.kite.auth.domain.models.UserInfo
 
 fun Application.configureAuthentication() {
     install(Authentication) {
@@ -29,7 +28,7 @@ fun Application.configureAuthentication() {
                 val email = credentials.payload.getClaim("email").asString()
 
                 if (id != null && name != null && email != null) {
-                    UserInfo(id = id, name = name, email = email)
+                    User(id = id, name = name, email = email)
                 }
                 else // todo create response for the API {
                 {
