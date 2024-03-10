@@ -25,6 +25,10 @@ dependencies {
     //  Kotlin Serialization
     implementation(libs.kotlinx.serialization.json)
 
+    //  JWT Auth
+    implementation(libs.ktor.server.auth)
+    implementation(libs.ktor.server.auth.jwt)
+
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)
 }
