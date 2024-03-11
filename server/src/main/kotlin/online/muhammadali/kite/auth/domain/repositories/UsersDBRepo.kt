@@ -1,6 +1,7 @@
 package online.muhammadali.kite.auth.domain.repositories
 
 import online.muhammadali.kite.auth.domain.models.User
+import online.muhammadali.kite.common.utl.Result
 
 interface UsersDBRepo {
 

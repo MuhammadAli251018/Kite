@@ -33,8 +33,8 @@ fun Application.configureAuthentication() {
                         respond("expired token")
                         null
                     }
-
-                    User(id = id, name = name, email = email)
+                    else
+                        User(id = id, name = name, email = email)
                 }
                 else // todo create response for the API {
                 {
