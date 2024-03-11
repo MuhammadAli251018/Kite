@@ -12,6 +12,7 @@ class JwtGenerator : TokenService<User>{
         return JWT.create()
             .withIssuer(config.issuer)
             .addClaims(data.getClaims())
+            .withClaim("exp", System.currentTimeMillis() + config.expiresDuration)
             .sign(Algorithm.HMAC512(config.secret))
     }
 }

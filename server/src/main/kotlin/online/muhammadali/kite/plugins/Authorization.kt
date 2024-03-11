@@ -26,8 +26,14 @@ fun Application.configureAuthentication() {
                 val id = credentials.payload.getClaim("id").asString()
                 val name = credentials.payload.getClaim("name").asString()
                 val email = credentials.payload.getClaim("email").asString()
+                val expireTime = credentials.payload.getClaim("exp").asLong()
 
-                if (id != null && name != null && email != null) {
+                if (id != null && name != null && email != null && expireTime != null) {
+                    if (expireTime < System.currentTimeMillis()) {
+                        respond("expired token")
+                        null
+                    }
+
                     User(id = id, name = name, email = email)
                 }
                 else // todo create response for the API {
