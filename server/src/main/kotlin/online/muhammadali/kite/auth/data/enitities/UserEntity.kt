@@ -23,3 +23,9 @@ fun getNewUserEntity(name: String, email: String) = UserEntity(
     name = name,
     email = email
 )
+
+fun UserEntity.toUser() = User(
+    id = id.toString(),
+    name = name,
+    email = email
+)
