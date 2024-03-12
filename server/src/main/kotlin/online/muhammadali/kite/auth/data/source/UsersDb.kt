@@ -22,7 +22,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
         return try {
             val result = collection.find(eq(UserEntity::id.name, id)).first()
             Success(result)
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             Failure(e)
         }
     }
@@ -34,7 +34,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
                 Success(Unit)
             else
                 throw IOException("Couldn't delete user")
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             Failure(e)
         }
     }
@@ -49,7 +49,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
                 Success(Unit)
             else
                 throw IOException("Couldn't update user")
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             Failure(e)
         }
     }
@@ -61,7 +61,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
                 Success(Unit)
             else
                 throw IOException("Couldn't add new user")
-            } catch (e: IOException) {
+            } catch (e: Exception) {
                 Failure(e)
             }
 
