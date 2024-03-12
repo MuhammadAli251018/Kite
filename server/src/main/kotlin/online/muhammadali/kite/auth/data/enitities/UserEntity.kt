@@ -6,26 +6,26 @@ import org.bson.types.ObjectId
 
 data class UserEntity(
     @BsonId
-    val id: ObjectId,
+    val _id: ObjectId,
     val name: String,
     val email: String
 )
 
 
 fun User.toUserEntity() = UserEntity(
-    id = ObjectId(id),
+    _id = ObjectId(id),
     name = name,
     email = email
 )
 
 fun getNewUserEntity(name: String, email: String) = UserEntity(
-    id = ObjectId(),
+    _id = ObjectId(),
     name = name,
     email = email
 )
 
 fun UserEntity.toUser() = User(
-    id = id.toString(),
+    id = _id.toString(),
     name = name,
     email = email
 )

@@ -4,11 +4,8 @@ import com.mongodb.client.model.Filters.*
 import com.mongodb.client.model.Updates.set
 import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.ktor.utils.io.errors.IOException
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
 import online.muhammadali.kite.auth.data.enitities.UserEntity
-import online.muhammadali.kite.auth.data.enitities.toUserEntity
 import online.muhammadali.kite.common.utl.Failure
 import online.muhammadali.kite.common.utl.Success
 import online.muhammadali.kite.common.utl.Result
@@ -20,7 +17,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
     override suspend fun getById(id: ObjectId): Result<UserEntity> {
 
         return try {
-            val result = collection.find(eq(UserEntity::id.name, id)).first()
+            val result = collection.find(eq(UserEntity::_id.name, id)).first()
             Success(result)
         } catch (e: Exception) {
             Failure(e)
@@ -29,7 +26,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
 
     override suspend fun deleteData(data: UserEntity): Result<Unit> {
         return try {
-            val result = collection.deleteOne(filter = eq(UserEntity::id.name, data.id))
+            val result = collection.deleteOne(filter = eq(UserEntity::_id.name, data._id))
             if (result.wasAcknowledged())
                 Success(Unit)
             else
@@ -42,7 +39,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
     override suspend fun updateData(data: UserEntity): Result<Unit> {
         return try {
             val result = collection.updateOne(
-                filter = eq(UserEntity::id.name, data.id),
+                filter = eq(UserEntity::_id.name, data._id),
                 listOf(set(data::name.name, data.name), set(data::email.name, data.email))
             )
             if (result.wasAcknowledged())
