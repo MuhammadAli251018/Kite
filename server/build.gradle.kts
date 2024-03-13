@@ -29,6 +29,9 @@ dependencies {
     implementation(libs.ktor.server.auth)
     implementation(libs.ktor.server.auth.jwt)
 
+    //  Google Client API
+    implementation(libs.google.api.client)
+
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)
 }

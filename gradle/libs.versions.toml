@@ -12,15 +12,17 @@ androidx-material = "1.11.0"
 androidx-test-junit = "1.1.5"
 compose = "1.6.2"
 compose-plugin = "1.6.0"
+googleApiClient = "1.32.1"
 junit = "4.13.2"
 kotlin = "1.9.22"
 kotlinxSerializationJson = "1.6.2"
 ktor = "2.3.9"
 logback = "1.5.3"
-mongodbDriverKotlinCoroutine = "4.11.0"
+mongodb = "4.11.0"
 
 [libraries]
-bson-kotlinx = { module = "org.mongodb:bson-kotlinx", version.ref = "mongodbDriverKotlinCoroutine" }
+bson-kotlinx = { module = "org.mongodb:bson-kotlinx", version.ref = "mongodb" }
+google-api-client = { module = "com.google.api-client:google-api-client", version.ref = "googleApiClient" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -40,7 +42,7 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
-mongodb-driver-kotlin-coroutine = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongodbDriverKotlinCoroutine" }
+mongodb-driver-kotlin-coroutine = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongodb" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
