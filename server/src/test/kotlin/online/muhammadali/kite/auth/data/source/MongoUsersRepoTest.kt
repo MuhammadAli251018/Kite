@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import online.muhammadali.kite.auth.data.enitities.toUserEntity
 import online.muhammadali.kite.auth.data.repositories.MongoUsersRepo
-import online.muhammadali.kite.auth.domain.models.User
+import online.muhammadali.kite.common.domain.User
 import online.muhammadali.kite.common.utl.Failure
 import online.muhammadali.kite.common.utl.Success
 import org.bson.types.ObjectId

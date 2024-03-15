@@ -1,9 +1,6 @@
 package online.muhammadali.kite.auth.data.util.security
 
-import com.auth0.jwt.JWT
-import com.auth0.jwt.algorithms.Algorithm
-import online.muhammadali.kite.auth.domain.models.User
-import online.muhammadali.kite.auth.domain.models.addClaims
+import online.muhammadali.kite.common.domain.User
 import org.junit.Test
 import java.nio.charset.StandardCharsets
 

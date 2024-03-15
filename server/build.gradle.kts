@@ -32,6 +32,12 @@ dependencies {
     //  Google Client API
     implementation(libs.google.api.client)
 
+    //  Content Negotiation
+    implementation(libs.ktor.server.content.negotiation)
+
+    //  Serialization
+    implementation(libs.ktor.serialization.kotlinx.json)
+
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)
 }
