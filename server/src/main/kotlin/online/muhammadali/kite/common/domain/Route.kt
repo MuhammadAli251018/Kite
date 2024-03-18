@@ -1,4 +1,4 @@
-package online.muhammadali.kite.auth.domain.models
+package online.muhammadali.kite.common.domain
 
 open class Route internal constructor (val path: String) {
 

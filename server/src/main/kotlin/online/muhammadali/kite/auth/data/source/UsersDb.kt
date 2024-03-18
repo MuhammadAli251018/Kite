@@ -11,10 +11,10 @@ import online.muhammadali.kite.common.utl.Success
 import online.muhammadali.kite.common.utl.Result
 import org.bson.types.ObjectId
 
-class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
+class UsersDb(db: MongoDatabase) {
     private val collection = db.getCollection<UserEntity>("users")
     
-    override suspend fun getById(id: ObjectId): Result<UserEntity> {
+    suspend fun getById(id: ObjectId): Result<UserEntity> {
 
         return try {
             val result = collection.find(eq(UserEntity::_id.name, id)).first()
@@ -24,7 +24,17 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
         }
     }
 
-    override suspend fun deleteData(data: UserEntity): Result<Unit> {
+    suspend fun getByEmail(id: String): Result<UserEntity> {
+
+        return try {
+            val result = collection.find(eq(UserEntity::email.name, id)).first()
+            Success(result)
+        } catch (e: Exception) {
+            Failure(e)
+        }
+    }
+
+    suspend fun deleteData(data: UserEntity): Result<Unit> {
         return try {
             val result = collection.deleteOne(filter = eq(UserEntity::_id.name, data._id))
             if (result.wasAcknowledged())
@@ -36,7 +46,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
         }
     }
 
-    override suspend fun updateData(data: UserEntity): Result<Unit> {
+    suspend fun updateData(data: UserEntity): Result<Unit> {
         return try {
             val result = collection.updateOne(
                 filter = eq(UserEntity::_id.name, data._id),
@@ -51,7 +61,7 @@ class UsersDb(db: MongoDatabase) : MongoDb<UserEntity> {
         }
     }
 
-    override suspend fun writeData(data: UserEntity): Result<Unit> {
+    suspend fun writeData(data: UserEntity): Result<Unit> {
         return try {
             val result = collection.insertOne(data)
             if (result.wasAcknowledged())

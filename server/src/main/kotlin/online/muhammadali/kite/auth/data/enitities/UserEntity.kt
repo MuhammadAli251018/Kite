@@ -1,6 +1,6 @@
 package online.muhammadali.kite.auth.data.enitities
 
-import online.muhammadali.kite.auth.domain.models.User
+import online.muhammadali.kite.common.domain.User
 import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 

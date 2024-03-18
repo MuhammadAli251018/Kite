@@ -17,6 +17,8 @@ dependencies {
     implementation(libs.logback)
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.config.yaml)
+
 
     //  Monogo DB
     implementation(libs.mongodb.driver.kotlin.coroutine)
@@ -28,6 +30,21 @@ dependencies {
     //  JWT Auth
     implementation(libs.ktor.server.auth)
     implementation(libs.ktor.server.auth.jwt)
+
+    //  Google Client API
+    implementation(libs.google.api.client)
+
+    //  Content Negotiation
+    implementation(libs.ktor.server.content.negotiation)
+
+    //  Serialization
+    implementation(libs.ktor.serialization.kotlinx.json)
+
+    //  Koin
+    //implementation(libs.koin.bom)
+    implementation(libs.koin.core)
+    implementation(libs.koin.ktor)
+    //implementation(libs.koin.core.coroutines)
 
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)

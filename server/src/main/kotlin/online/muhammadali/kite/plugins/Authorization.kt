@@ -7,7 +7,7 @@ import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.jwt.jwt
 import io.ktor.server.response.respond
-import online.muhammadali.kite.auth.domain.models.User
+import online.muhammadali.kite.common.domain.User
 
 fun Application.configureAuthentication() {
     install(Authentication) {

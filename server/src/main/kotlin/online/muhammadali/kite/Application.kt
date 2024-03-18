@@ -1,25 +1,18 @@
 package online.muhammadali.kite
 
-import Greeting
-import SERVER_PORT
 import io.ktor.server.application.*
-import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
 import online.muhammadali.kite.plugins.configureAuthentication
+import online.muhammadali.kite.plugins.configureDi
+import online.muhammadali.kite.plugins.configureRouting
+import online.muhammadali.kite.plugins.configureSerialization
 
-fun main() {
-    embeddedServer(Netty, port = SERVER_PORT, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
-}
+fun main( args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
+    println(environment.config.propertyOrNull("jwt.domain")?.getString())
+    configureDi()
     configureAuthentication()
-
-    routing {
-        get("/") {
-            call.respondText("Ktor: ${Greeting().greet()}")
-        }
-    }
+    configureSerialization()
+    configureRouting()
 }

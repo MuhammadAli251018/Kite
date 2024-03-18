@@ -4,7 +4,7 @@ import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import online.muhammadali.kite.auth.domain.models.TokenConfig
 import online.muhammadali.kite.auth.domain.models.TokenService
-import online.muhammadali.kite.auth.domain.models.User
+import online.muhammadali.kite.common.domain.User
 import online.muhammadali.kite.auth.domain.models.addClaims
 
 class JwtGenerator : TokenService<User>{
