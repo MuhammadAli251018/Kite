@@ -16,4 +16,4 @@ jwt :
     domain: "https://online.muhammadali.kite"
     audience: "kite-user"
     realm: "kite"
-    key: $PRIVATE_KEY
+    key: "$PRIVATE_KEY:4qnB8NmWEvSfeIMizmfX6GF54at6u4CmMV8G/9esQYg="
