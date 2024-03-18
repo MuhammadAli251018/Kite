@@ -17,6 +17,8 @@ dependencies {
     implementation(libs.logback)
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.config.yaml)
+
 
     //  Monogo DB
     implementation(libs.mongodb.driver.kotlin.coroutine)
@@ -37,6 +39,12 @@ dependencies {
 
     //  Serialization
     implementation(libs.ktor.serialization.kotlinx.json)
+
+    //  Koin
+    //implementation(libs.koin.bom)
+    implementation(libs.koin.core)
+    implementation(libs.koin.ktor)
+    //implementation(libs.koin.core.coroutines)
 
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)
