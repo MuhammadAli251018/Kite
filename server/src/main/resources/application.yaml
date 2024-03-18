@@ -1,0 +1,19 @@
+ktor :
+    deployment:
+        port: "$PORT:8080"
+    application:
+        modules:
+        - [ online.muhammadali.kite.ApplicationKt.module ]
+db:
+    connection: "$CONNECTION_STR:mongodb://localhost:27017"
+auth:
+    google:
+        issuer: "https://accounts.google.com"
+        audience: "73266659874-q9vb788827tu87f8gr1vvc1fkd6j4grt.apps.googleusercontent.com"
+
+
+jwt :
+    domain: "https://online.muhammadali.kite"
+    audience: "kite-user"
+    realm: "kite"
+    key: $PRIVATE_KEY
