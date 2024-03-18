@@ -3,7 +3,7 @@ ktor :
         port: "$PORT:8080"
     application:
         modules:
-        - [ online.muhammadali.kite.ApplicationKt.module ]
+        - online.muhammadali.kite.ApplicationKt.module
 db:
     connection: "$CONNECTION_STR:mongodb://localhost:27017"
 auth:
