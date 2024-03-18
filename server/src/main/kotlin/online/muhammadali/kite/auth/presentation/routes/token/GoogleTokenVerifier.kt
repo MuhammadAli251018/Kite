@@ -7,14 +7,17 @@ import online.muhammadali.kite.common.utl.Failure
 import online.muhammadali.kite.common.utl.Result
 import online.muhammadali.kite.common.utl.Success
 
-class GoogleTokenVerifier :
+class GoogleTokenVerifier(
+    private val issuer: String,
+    private val audience: String
+) :
     ClientTokenVerifier {
 
     override fun verify(token: String): Result<UserInfo> {
         return try {
             val verifier = GoogleIdTokenVerifier.Builder(NetHttpTransport(), GsonFactory())
-                .setIssuer("https://accounts.google.com")
-                .setAudience(listOf("73266659874-q9vb788827tu87f8gr1vvc1fkd6j4grt.apps.googleusercontent.com"))
+                .setIssuer(issuer)
+                .setAudience(listOf(audience))
                 .build()
                 .verify(token)
 

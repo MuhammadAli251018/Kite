@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
 import online.muhammadali.kite.auth.data.util.security.JwtGenerator
+import online.muhammadali.kite.auth.domain.models.TokenConfig
 import online.muhammadali.kite.auth.domain.repositories.UsersDBRepo
 import online.muhammadali.kite.common.domain.User
 import online.muhammadali.kite.common.utl.Failure
@@ -15,7 +16,8 @@ import org.bson.types.ObjectId
 class TokenRequestVmImp(
     private val usersDBRepo: UsersDBRepo,
     private val verifier: ClientTokenVerifier,
-    private val tokenGenerator: JwtGenerator
+    private val tokenGenerator: JwtGenerator,
+    private val jwtConfig: TokenConfig
 ) :  TokenRequestViewModel {
 
     override fun verifyToken(token: String): Result<UserInfo> {
@@ -39,7 +41,10 @@ class TokenRequestVmImp(
     }
 
     override fun generateToken(id: String, email: String, name: String): String {
-        return tokenGenerator.generateToken(data = User(
+
+        return tokenGenerator.generateToken(
+            config = jwtConfig,
+            data = User(
             id = id,
             email = email,
             name = name

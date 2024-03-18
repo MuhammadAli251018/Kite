@@ -50,7 +50,3 @@ fun Route.setupRequestTokenRoute(viewModel: TokenRequestViewModel) {
 
 
 class AuthException(override val message: String) : Exception()
-
-inline fun getVerifier(block: ClientTokenVerifier.() -> Unit) = GoogleTokenVerifier().apply {
-    block()
-}
