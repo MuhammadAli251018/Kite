@@ -41,10 +41,11 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
 
     //  Koin
-    //implementation(libs.koin.bom)
     implementation(libs.koin.core)
     implementation(libs.koin.ktor)
-    //implementation(libs.koin.core.coroutines)
+
+    //  WebSockets
+    implementation(libs.ktor.server.websockets)
 
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)

@@ -1,4 +1,4 @@
-package online.muhammadali.kite.common.di
+package online.muhammadali.kite.auth.di
 
 import com.mongodb.kotlin.client.coroutine.MongoClient
 import io.ktor.server.application.Application
@@ -17,7 +17,7 @@ import org.koin.dsl.module
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.times
 
-fun Application.appModule(): Module {
+fun Application.authModule(): Module {
     return module {
         factory<ClientTokenVerifier>{ GoogleTokenVerifier(
             getVariableOrThrow("auth.google.issuer"),
