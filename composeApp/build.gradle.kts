@@ -18,8 +18,12 @@ kotlin {
     sourceSets {
         
         androidMain.dependencies {
+
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.material3.android)
+            implementation(libs.androidx.core.splashscreen)
+
         }
         commonMain.dependencies {
             implementation(compose.runtime)

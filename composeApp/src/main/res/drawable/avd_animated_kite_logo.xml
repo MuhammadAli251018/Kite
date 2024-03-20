@@ -1,0 +1,196 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="288dp"
+            android:height="288dp"
+            android:viewportWidth="288"
+            android:viewportHeight="288">
+            <group
+                android:name="group"
+                android:pivotX="144"
+                android:pivotY="144">
+                <group android:name="group_tr">
+                    <path
+                        android:name="top_right"
+                        android:pathData="M 206.7 87 C 206.8 85.53 205.02 84.72 203.97 85.77 L 166.67 123.07 C 166.08 123.66 166.05 124.6 166.59 125.24 L 199.09 163.36 C 200.02 164.45 201.81 163.85 201.9 162.42 L 206.7 87 Z"
+                        android:fillColor="#ffffff"/>
+                </group>
+                <group android:name="group_tl">
+                    <path
+                        android:name="top_left"
+                        android:pathData="M 200.81 81.11 C 202.29 81.02 203.09 82.8 202.05 83.85 L 164.75 121.14 C 164.16 121.73 163.21 121.77 162.58 121.23 L 124.46 88.73 C 123.37 87.8 123.96 86.01 125.4 85.92 L 200.81 81.11 Z"
+                        android:fillColor="#ffffff"/>
+                </group>
+                <group android:name="group_br">
+                    <path
+                        android:name="bottom_right"
+                        android:pathData="M 88.81 205.23 C 87.21 205.76 85.97 203.77 87.17 202.57 L 162.42 127.32 C 163.08 126.66 164.16 126.71 164.77 127.42 L 198.07 166.48 C 198.81 167.35 198.43 168.68 197.36 169.04 L 88.81 205.23 Z"
+                        android:fillColor="#ffffff"/>
+                </group>
+                <group android:name="group_bl">
+                    <path
+                        android:name="bottom_left"
+                        android:pathData="M 82.82 199.23 C 82.28 200.84 84.27 202.07 85.47 200.87 L 160.72 125.62 C 161.38 124.96 161.34 123.88 160.63 123.27 L 121.56 89.97 C 120.69 89.24 119.36 89.61 119 90.69 L 82.82 199.23 Z"
+                        android:fillColor="#ffffff"/>
+                </group>
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="group_tr">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="translateX"
+                android:startOffset="200"
+                android:duration="800"
+                android:valueFrom="30"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/anticipate_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="group_tl">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="translateY"
+                android:startOffset="200"
+                android:duration="800"
+                android:valueFrom="-30"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/anticipate_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="group_br">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="translateY"
+                android:startOffset="200"
+                android:duration="800"
+                android:valueFrom="30"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/anticipate_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="group_bl">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="translateX"
+                android:startOffset="200"
+                android:duration="800"
+                android:valueFrom="-30"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/anticipate_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="group">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:startOffset="250"
+                    android:duration="750"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:startOffset="250"
+                    android:duration="750"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="top_right">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:duration="250"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#00ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/linear_interpolator"/>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:startOffset="300"
+                    android:duration="600"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="top_left">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:duration="250"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#00ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/linear_interpolator"/>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:startOffset="300"
+                    android:duration="600"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="bottom_right">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:duration="250"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#00ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/linear_interpolator"/>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:startOffset="300"
+                    android:duration="600"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="bottom_left">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:duration="250"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#00ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/linear_interpolator"/>
+                <objectAnimator
+                    android:propertyName="fillColor"
+                    android:startOffset="300"
+                    android:duration="600"
+                    android:valueFrom="#00ffffff"
+                    android:valueTo="#ffffff"
+                    android:valueType="colorType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>
