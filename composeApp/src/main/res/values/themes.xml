@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Kite" parent="android:Theme.Material.Light.NoActionBar" />
+    
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/teal_269</item>
+        <item name="postSplashScreenTheme">@style/Theme.Kite</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/avd_animated_kite_logo</item>
+    </style>
+    
+</resources>
