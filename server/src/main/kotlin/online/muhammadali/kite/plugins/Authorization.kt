@@ -16,6 +16,7 @@ fun Application.configureAuthentication() {
             val issuer = "online.muhammadali.kite"
 
             verifier(
+                //  Todo: Complete
                 JWT
                     .require(Algorithm.HMAC256("test secret"))
                     .withIssuer(issuer)
