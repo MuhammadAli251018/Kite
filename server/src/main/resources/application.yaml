@@ -11,9 +11,12 @@ auth:
         issuer: "https://accounts.google.com"
         audience: "73266659874-q9vb788827tu87f8gr1vvc1fkd6j4grt.apps.googleusercontent.com"
 
+websockets:
+    keys_path: "~/.keys/kite"
 
 jwt :
     domain: "https://online.muhammadali.kite"
     audience: "kite-user"
     realm: "kite"
     key: "$PRIVATE_KEY:4qnB8NmWEvSfeIMizmfX6GF54at6u4CmMV8G/9esQYg="
+
