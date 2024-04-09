@@ -1,6 +1,5 @@
 package online.muhammadali.kite.plugins
 
-import io.ktor.http.auth.parseAuthorizationHeader
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.auth.authenticate
@@ -12,12 +11,15 @@ import io.ktor.server.websocket.timeout
 import io.ktor.server.websocket.*
 import io.ktor.websocket.Frame
 import io.ktor.websocket.readText
-import online.muhammadali.kite.auth.data.util.security.JwtGenerator
-import online.muhammadali.kite.auth.presentation.routes.token.AuthException
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import online.muhammadali.kite.common.domain.User
+import online.muhammadali.kite.location.presentation.Message
+import online.muhammadali.kite.location.presentation.WebsocketsViewModel
 import java.time.Duration
 
-fun Application.configureWebSockets() {
+fun Application.configureWebSockets(viewModel: WebsocketsViewModel) {
     install(WebSockets) {
         pingPeriod = Duration.ofSeconds(15)
         timeout = Duration.ofSeconds(15)
@@ -27,17 +29,26 @@ fun Application.configureWebSockets() {
 
     routing {
         authenticate {
-            webSocket("/webSocket") {
-                val id = (call.principal<User>() ?: throw Exception("Can't get id")).id
-                //  todo get the key
+            webSocket("/webSocket/{public_key}") {
 
-                send(Frame.Text("sender: Connected "))
-                for (frame in incoming) {
-                    frame as? Frame.Text ?: continue
-                    val receivedText = frame.readText()
-                    println("received: $receivedText")
-                    send(Frame.Text("You said: $receivedText"))
+                val id = (call.principal<User>() ?: throw Exception("Can't get id")).id
+                val key = call.parameters["public_key"] ?: throw Exception("Can't get the key")
+
+                launch {
+                    val connectionManager = viewModel.registerConnection(
+                        userId = id,
+                        publicKey = key,
+                    ) {
+                        send(Frame.Text(it))
+                    }
+
+                    for (frame in incoming) {
+                        frame as? Frame.Text ?: continue
+                        val receivedText = frame.readText()
+                        connectionManager.onMessageReceived(receivedText)
+                    }
                 }
+
             }
         }
     }
